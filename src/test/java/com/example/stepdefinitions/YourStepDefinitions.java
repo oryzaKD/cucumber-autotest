@@ -15,12 +15,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
 
 // Atau untuk TestNG
 // import org.testng.Assert;
@@ -29,20 +25,7 @@ import java.time.Duration;
 
 public class YourStepDefinitions {
 
-    // private WebDriver driver;
     private static WebDriver driver;
-    private WebDriverWait wait;
-    private TestConfig testConfig;
-
-    // @Before
-    // public void setup() {
-    // // System.setProperty("webdriver.chrome.driver",
-    // "C:\\seleniumdrivers\\chromedriver.exe");
-    // if (driver == null) {
-    // driver = new ChromeDriver();
-    // wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    // }
-    // }
 
     @Before
     public void setUp() {
@@ -106,7 +89,6 @@ public class YourStepDefinitions {
     }
 
     //CATEGORY
-
     @Given("I am on the category page")
     public void i_am_on_the_category_page() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -164,11 +146,8 @@ public class YourStepDefinitions {
         int counterValue = FileCounter.incrementAndSaveCounter();
         categoryNameInput.sendKeys("Category" + counterValue);
 
-        // Fill in the category description (if applicable)
         WebElement categoryDescriptionInput = driver.findElement(By.id("deskripsi"));
         categoryDescriptionInput.sendKeys("This is a test category description");
-
-        // Add any additional fields as necessary
 
         // Submit the form
         WebElement submitButton = driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[2]/button"));
@@ -224,8 +203,6 @@ public class YourStepDefinitions {
                 ExpectedConditions
                         .elementToBeClickable(By.id("deskripsi")));
         categoryDescriptionInputUpdate.sendKeys(", and have been updated");
-
-        // Add any additional fields as necessary
 
         // Submit the form
         WebElement submitButton = driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[2]/button"));
