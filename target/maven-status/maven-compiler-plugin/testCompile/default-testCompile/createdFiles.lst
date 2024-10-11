@@ -1,3 +1,4 @@
+com\example\stepdefinitions\FileCounter.class
 com\example\runners\TestRunner.class
 com\example\config\TestConfig.class
 com\example\stepdefinitions\YourStepDefinitions.class

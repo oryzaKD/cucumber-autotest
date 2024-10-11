@@ -126,7 +126,7 @@ public class YourStepDefinitions {
         assertTrue("\"name\" is not allowed to be empty",
                 driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[2]/div[1]")).isDisplayed());
 
-        new WebDriverWait(driver, Duration.ofSeconds(3))
+        new WebDriverWait(driver, Duration.ofSeconds(2))
                 .until(webDriver -> {
                     try {
                         Thread.sleep(5000);
@@ -303,7 +303,7 @@ public class YourStepDefinitions {
         assertTrue("\"name\" is not allowed to be empty",
                 driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[2]/div[1]")).isDisplayed());
 
-        new WebDriverWait(driver, Duration.ofSeconds(3))
+        new WebDriverWait(driver, Duration.ofSeconds(2))
                 .until(webDriver -> {
                     try {
                         Thread.sleep(5000);
