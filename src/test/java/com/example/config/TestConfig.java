@@ -26,5 +26,7 @@ public class TestConfig {
         return driver;
     }
 
-    // Tambahkan method tearDown jika diperlukan
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
 }
