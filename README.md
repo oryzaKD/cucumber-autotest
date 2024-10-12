@@ -5,7 +5,7 @@ Link Document Test Scenario
 https://docs.google.com/spreadsheets/d/147RHAyYWttW1UYu9GMyTCJchpElY5ym8bfYqKSqhCcI/edit?usp=sharing
 
 Link Recording 
-https://drive.google.com/file/d/13ME4fZqAsRDhQjgJBazkCy2pK0jwHtmJ/view?usp=sharing
+https://drive.google.com/file/d/1z4zFMVheGCBgJ0N0lUVjuqoQU4gB8gtE/view?usp=sharing
 
 HOW TO RUNNING THE AUTOMATION TEST CODE WITH CUCUMBER:
    
