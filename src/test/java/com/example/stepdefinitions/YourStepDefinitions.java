@@ -10,6 +10,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -53,9 +54,47 @@ public class YourStepDefinitions {
         driver.get("https://kasirdemo.vercel.app/login");
     }
 
+    @And("I enter invalid email and password")
+    public void i_enter_invalid_email_and_password() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("email")));
+        element1.sendKeys("apa.aja@hotmail.com");
+
+        WebElement element2 = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
+        element2.sendKeys("123123");
+
+        WebElement element3 = wait.until(ExpectedConditions
+                .presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div/button")));
+        element3.click();        
+    }
+
+    @Then("I should see error message invalid credentials")
+    public void i_should_see_error_message_invalid_credentials() {   
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));     
+        assertTrue("Kredensial yang Anda berikan salah",
+        driver.findElement(By.xpath("/html/body/div[1]/div/div/div/div[2]/div/div[1]")).isDisplayed());
+
+        new WebDriverWait(driver, Duration.ofSeconds(2))
+                .until(webDriver -> {
+                    try {
+                        Thread.sleep(5000);
+                        return true;
+                    } catch (InterruptedException e) {
+                        return false;
+                    }
+                });
+
+        WebElement element1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("email")));
+        element1.sendKeys(Keys.CONTROL + "a");
+        element1.sendKeys(Keys.DELETE);
+
+        WebElement element2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password")));
+        element2.sendKeys(Keys.CONTROL + "a");
+        element2.sendKeys(Keys.DELETE);
+    }
+
     @When("I enter valid email and password")
     public void i_enter_valid_email_and_password() {
-        System.out.println("1");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element1 = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("email")));
         element1.sendKeys("kita.jaya@hotmail.com");
@@ -67,7 +106,7 @@ public class YourStepDefinitions {
                 .presenceOfElementLocated(By.xpath("//*[@id=\"root\"]/div/div/div/div[2]/div/button")));
         element3.click();
 
-        new WebDriverWait(driver, Duration.ofSeconds(5))
+        new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(webDriver -> {
                     try {
                         Thread.sleep(5000);

@@ -2,6 +2,8 @@ Feature: System kasirAja
 
   Scenario: Successful login with valid credentials
     Given I am on the login page
+    When I enter invalid email and password
+    Then I should see error message invalid credentials
     When I enter valid email and password
     Then I should be redirected to the dashboard page
 
