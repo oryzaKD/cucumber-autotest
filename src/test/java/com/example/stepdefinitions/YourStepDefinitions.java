@@ -180,7 +180,6 @@ public class YourStepDefinitions {
     public void i_fill_the_category_form() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        // Fill in the category name
         WebElement categoryNameInput = driver.findElement(By.id("nama"));
         int counterValue = FileCounter.incrementAndSaveCounter();
         categoryNameInput.sendKeys("Category" + counterValue);
@@ -188,12 +187,9 @@ public class YourStepDefinitions {
         WebElement categoryDescriptionInput = driver.findElement(By.id("deskripsi"));
         categoryDescriptionInput.sendKeys("This is a test category description");
 
-        // Submit the form
         WebElement submitButton = driver.findElement(By.xpath("/html/body/div[1]/div/div/div[2]/div[2]/div[2]/button"));
         submitButton.click();
 
-        // Wait for submission to complete (you might want to wait for a success message
-        // or redirection)
         wait.until(ExpectedConditions.urlContains("https://kasirdemo.vercel.app/categories"));
     }
 
